@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+/* სავარჯიშო მრგვალი ფულის ცხრილის სექციის სტილები */
+.chart-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+.chart-container {
+  background-color: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+.chart-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+}
+.total-spent {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 18px;
+  color: #666;
+}
+.total-amount {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  display: block;
+}
+.semicircle-chart {
+  position: relative; /*because all the segments inside use position: absolute,Creates a "positioning context" for child elements IMPORTANT: relative for center-circle ანუ ტექსტი შუაში და თანხა:)*/
+  width: 300px; /* the exact size of our chart area for height as well*/
+  height: 300px;
+  margin: 0 auto 40px; /*Why? Centers the chart horizontally and adds space below*/
+  overflow: visible; /*So we can see the full circle, not cut it off, What it does: Allows content to extend beyond the container if needed, Originally was hidden: When it was a semicircle to cut off the bottom half*/
+}
+.chart-base {
+  width: 300px; /*Same size as parent container - fills it completely, What it does: Creates the actual circle dimensions. The "pie pan" that holds all our pie slices*/
+  height: 300px;
+  border-radius: 50%; /*Turns a square into a perfect circle!*/
+  position: relative; /*All the segments (food, entertainment, etc.) use position: absolute, Creates positioning context for segments to stack inside - მნიშვN:relative for segments*/
+  transform: rotate(-90deg);
+}
+/* Food - 35% */
+.segment-food {
+  position: absolute; /*So it can stack perfectly on top of other segments, Positions relative to .chart-base (the parent with position: relative*/
+  width: 100%; /*Takes the full size of .chart-base (300px × 300px), What it does: Makes this segment cover the entire circle area, Even though it's full size, only part will be visible!*/
+  height: 100%;
+  border-radius: 50%; /*Makes this div a perfect circle to match the chart base, What it does: Ensures the gradient follows a circular path*/
+  background: conic-gradient(
+    from 0deg,
+    /* Start angle (top of circle after rotation) */ #ff6b6b 0deg,
+    /* Red color from 0° */ #ff8e8e 126deg,
+    /* Lighter red until 126° */ transparent 126deg /* Invisible after 126° */
+  );
+}
+
+/* Entertainment - 25% */
+.segment-entertainment {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 126deg,
+    #4ecdc4 0deg,
+    #45b7b8 90deg,
+    transparent 90deg
+  );
+}
+
+/* Transportation - 20% */
+.segment-transport {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 216deg,
+    #a8e6cf 0deg,
+    #88d8a3 72deg,
+    transparent 72deg
+  );
+}
+/* Shopping - 20% */
+.segment-shopping {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 288deg,
+    #ffd93d 0deg,
+    #ffcd3c 72deg,
+    transparent 72deg
+  );
+}
+
+/* Center circle to create donut effect */
+.center-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.center-text {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.center-amount {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+/* Legend */
+.legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* two equal columns */
+  gap: 15px; /* Space between items */
+  margin-top: 30px;
+}
+
+.legend-item {
+  display: flex; /* Puts content side by side */
+  align-items: center; /* Centers everything vertically */
+  gap: 10px; /* Space between color/text/amount */
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+
+.legend-food {
+  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+}
+.legend-entertainment {
+  background: linear-gradient(45deg, #4ecdc4, #45b7b8);
+}
+.legend-transport {
+  background: linear-gradient(45deg, #a8e6cf, #88d8a3);
+}
+.legend-shopping {
+  background: linear-gradient(45deg, #ffd93d, #ffcd3c);
+}
+
+.legend-text {
+  font-size: 14px;
+  color: #666;
+  flex: 1;
+}
+
+.legend-amount {
+  font-weight: bold;
+  color: #333;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}

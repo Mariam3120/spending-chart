@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <!-- უბრალოდ სავარჯიშოდ მრგვალი ფულის სტატისტიკა -->
+    <section class="chart-section">
+      <div class="chart-container">
+        <h2 class="chart-title">Monthly Spendying Overview</h2>
+        <div class="total-spent">
+          Total Spent This Month
+          <span class="total-amount">$1,240</span>
+        </div>
+        <div class="semicircle-chart">
+          <!--ესაა კონტეინერი- holds everything together and sets the size-->
+          <div class="chart-base">
+            <!--the actual circle-->
+            <div class="segment-food"></div>
+            <!-- each piece of pie-->
+            <div class="segment-entertainment"></div>
+            <div class="segment-transport"></div>
+            <div class="segment-shopping"></div>
+            <div class="center-circle">
+              <!--  this is inside chart-base -->
+              <div class="center-text">Average Daily</div>
+              <div class="center-amount">$41</div>
+            </div>
+          </div>
+        </div>
+        <div class="legend">
+          <!-- Grid container -->
+          <div class="legend-item">
+            <!-- Flex container -->
+            <div class="legend-color legend-food"></div>
+            <span class="legend-text">Food & Dining</span>
+            <span class="legend-amount">$434</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color legend-entertainment"></div>
+            <span class="legend-text">Entertainment</span>
+            <span class="legend-amount">$310</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color legend-transport"></div>
+            <span class="legend-text">Transportation</span>
+            <span class="legend-amount">$248</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color legend-shopping"></div>
+            <span class="legend-text">Shopping</span>
+            <span class="legend-amount">$248</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
